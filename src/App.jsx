@@ -7,7 +7,6 @@ const App = () => {
   const [person, setPerson] = useState(reviews);
   const [index, setIndex] = useState(0);
 
-  console.log(person.length);
   return (
     <main>
       {/* <FaBeer className="beer" /> */}
@@ -39,7 +38,18 @@ const App = () => {
               <GrNext />
             </button>
             <div>
-              <button className="btn">surprise me!</button>
+              <button
+                className="btn"
+                onClick={() => {
+                  const getRandomNumber = (min, max) => {
+                    return Math.floor(Math.random() * (max - min) + min);
+                  };
+
+                  setIndex(getRandomNumber(0, person.length));
+                }}
+              >
+                surprise me!
+              </button>
             </div>
           </div>
         </div>

@@ -10,7 +10,14 @@ const App = () => {
     <main>
       <article className="review">
         <div className="img-container">
-          <img src={person[index].image} alt="" className="person-img" />
+          <img
+            src={person[index].image}
+            alt={person[index].name}
+            className="person-img"
+          />
+          <span className="quote-icon">
+            <FaQuoteRight />
+          </span>
         </div>
         <div className="review">
           <h5>{person[index].name}</h5>

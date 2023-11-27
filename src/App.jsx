@@ -8,11 +8,11 @@ const App = () => {
 
   return (
     <main>
-      <div className="reviews">
+      <article className="review">
+        <div className="img-container">
+          <img src={person[index].image} alt="" className="person-img" />
+        </div>
         <div className="review">
-          <div className="img-container">
-            <img src={person[index].image} alt="" className="person-img" />
-          </div>
           <h5>{person[index].name}</h5>
           <div className="job">{person[index].job}</div>
           <p>{person[index].text}</p>
@@ -51,7 +51,7 @@ const App = () => {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </main>
   );
 };

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import reviews from "./data";
-import { FaBeer } from "react-icons/fa";
-import { GrPrevious, GrNext } from "react-icons/gr";
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const App = () => {
   const [person, setPerson] = useState(reviews);
@@ -9,7 +8,6 @@ const App = () => {
 
   return (
     <main>
-      {/* <FaBeer className="beer" /> */}
       <div className="reviews">
         <div className="review">
           <div className="img-container">
@@ -26,7 +24,7 @@ const App = () => {
                 setIndex(index - 1);
               }}
             >
-              <GrPrevious />
+              <FaChevronLeft />
             </button>
             <button
               className="next-btn"
@@ -35,7 +33,7 @@ const App = () => {
                 setIndex(index + 1);
               }}
             >
-              <GrNext />
+              <FaChevronRight />
             </button>
             <div>
               <button

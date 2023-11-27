@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const App = () => {
   const [index, setIndex] = useState(0);
-  const { id, name, job, image, text } = person[index];
+  const { name, job, image, text } = person[index];
 
   const checkNumber = (number) => {
     if (number > person.length - 1) {
@@ -12,23 +12,23 @@ const App = () => {
     }
 
     if (number < 0) {
-      return person.length;
+      return person.length - 1;
     }
 
-    return;
+    return number;
   };
 
   const previousPerson = () => {
     setIndex((currentValue) => {
       const newIndex = currentValue - 1;
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
 
   const nextPerson = () => {
     setIndex((currentValue) => {
       const newIndex = currentValue + 1;
-      return newIndex;
+      return checkNumber(newIndex);
     });
   };
 

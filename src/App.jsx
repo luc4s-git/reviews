@@ -19,43 +19,41 @@ const App = () => {
             <FaQuoteRight />
           </span>
         </div>
-        <div className="review">
-          <h5>{person[index].name}</h5>
-          <div className="job">{person[index].job}</div>
-          <p>{person[index].text}</p>
-          <div className="btn-container">
+        <h4 className="author">{person[index].name}</h4>
+        <p className="job">{person[index].job}</p>
+        <p className="info">{person[index].text}</p>
+        <div className="btn-container">
+          <button
+            className="prev-btn"
+            onClick={() => {
+              if (index <= 0) return;
+              setIndex(index - 1);
+            }}
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            className="next-btn"
+            onClick={() => {
+              if (index >= person.length - 1) return;
+              setIndex(index + 1);
+            }}
+          >
+            <FaChevronRight />
+          </button>
+          <div>
             <button
-              className="prev-btn"
+              className="btn"
               onClick={() => {
-                if (index <= 0) return;
-                setIndex(index - 1);
-              }}
-            >
-              <FaChevronLeft />
-            </button>
-            <button
-              className="next-btn"
-              onClick={() => {
-                if (index >= person.length - 1) return;
-                setIndex(index + 1);
-              }}
-            >
-              <FaChevronRight />
-            </button>
-            <div>
-              <button
-                className="btn"
-                onClick={() => {
-                  const getRandomNumber = (min, max) => {
-                    return Math.floor(Math.random() * (max - min) + min);
-                  };
+                const getRandomNumber = (min, max) => {
+                  return Math.floor(Math.random() * (max - min) + min);
+                };
 
-                  setIndex(getRandomNumber(0, person.length));
-                }}
-              >
-                surprise me!
-              </button>
-            </div>
+                setIndex(getRandomNumber(0, person.length));
+              }}
+            >
+              surprise me!
+            </button>
           </div>
         </div>
       </article>

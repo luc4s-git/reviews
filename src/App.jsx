@@ -6,6 +6,16 @@ const App = () => {
   const [person, setPerson] = useState(reviews);
   const [index, setIndex] = useState(0);
 
+  const previousPerson = () => {
+    if (index <= 0) return;
+    setIndex(index - 1);
+  };
+
+  const nextPerson = () => {
+    if (index >= person.length - 1) return;
+    setIndex(index + 1);
+  };
+
   return (
     <main>
       <article className="review">
@@ -23,22 +33,10 @@ const App = () => {
         <p className="job">{person[index].job}</p>
         <p className="info">{person[index].text}</p>
         <div className="btn-container">
-          <button
-            className="prev-btn"
-            onClick={() => {
-              if (index <= 0) return;
-              setIndex(index - 1);
-            }}
-          >
+          <button className="prev-btn" onClick={previousPerson}>
             <FaChevronLeft />
           </button>
-          <button
-            className="next-btn"
-            onClick={() => {
-              if (index >= person.length - 1) return;
-              setIndex(index + 1);
-            }}
-          >
+          <button className="next-btn" onClick={nextPerson}>
             <FaChevronRight />
           </button>
           <div>

@@ -7,7 +7,13 @@ const App = () => {
   const { id, name, job, image, text } = person[index];
 
   const previousPerson = () => {
-    if (index <= 0) return;
+    if (index <= 0) {
+      setIndex((currentValue) => {
+        const newValue = (currentValue = person.length - 1);
+        return newValue;
+      });
+      return;
+    }
 
     setIndex((currentValue) => {
       const newValue = currentValue - 1;
@@ -16,7 +22,13 @@ const App = () => {
   };
 
   const nextPerson = () => {
-    if (index >= person.length - 1) return;
+    if (index >= person.length - 1) {
+      setIndex((currentValue) => {
+        const newValue = (currentValue = 0);
+        return newValue;
+      });
+      return;
+    }
 
     setIndex((currentValue) => {
       const newValue = currentValue + 1;

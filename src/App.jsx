@@ -10,7 +10,7 @@ const App = () => {
     if (index <= 0) return;
 
     setIndex((currentValue) => {
-      const newValue = index - 1;
+      const newValue = currentValue - 1;
       return newValue;
     });
   };
@@ -19,7 +19,7 @@ const App = () => {
     if (index >= person.length - 1) return;
 
     setIndex((currentValue) => {
-      const newValue = index + 1;
+      const newValue = currentValue + 1;
       return newValue;
     });
   };

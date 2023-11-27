@@ -1,38 +1,34 @@
-import person from "./data";
-import { useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
+import person from './data';
+import { useState } from 'react';
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const App = () => {
   const [index, setIndex] = useState(0);
   const { id, name, job, image, text } = person[index];
 
-  const previousPerson = () => {
-    if (index <= 0) {
-      setIndex((currentValue) => {
-        const newValue = (currentValue = person.length - 1);
-        return newValue;
-      });
-      return;
+  const checkNumber = (number) => {
+    if (number > person.length - 1) {
+      return 0;
     }
 
+    if (number < 0) {
+      return person.length;
+    }
+
+    return;
+  };
+
+  const previousPerson = () => {
     setIndex((currentValue) => {
-      const newValue = currentValue - 1;
-      return newValue;
+      const newIndex = currentValue - 1;
+      return newIndex;
     });
   };
 
   const nextPerson = () => {
-    if (index >= person.length - 1) {
-      setIndex((currentValue) => {
-        const newValue = (currentValue = 0);
-        return newValue;
-      });
-      return;
-    }
-
     setIndex((currentValue) => {
-      const newValue = currentValue + 1;
-      return newValue;
+      const newIndex = currentValue + 1;
+      return newIndex;
     });
   };
 

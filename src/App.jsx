@@ -1,5 +1,5 @@
-import { useState } from "react";
 import person from "./data";
+import { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const App = () => {
@@ -8,12 +8,20 @@ const App = () => {
 
   const previousPerson = () => {
     if (index <= 0) return;
-    setIndex(index - 1);
+
+    setIndex((currentValue) => {
+      const newValue = index - 1;
+      return newValue;
+    });
   };
 
   const nextPerson = () => {
     if (index >= person.length - 1) return;
-    setIndex(index + 1);
+
+    setIndex((currentValue) => {
+      const newValue = index + 1;
+      return newValue;
+    });
   };
 
   const getRandomNumber = (min, max) => {
@@ -37,10 +45,10 @@ const App = () => {
         <p className="job">{job}</p>
         <p className="info">{text}</p>
         <div className="btn-container">
-          <button className="prev-btn" onClick={previousPerson}>
+          <button type="button" className="prev-btn" onClick={previousPerson}>
             <FaChevronLeft />
           </button>
-          <button className="next-btn" onClick={nextPerson}>
+          <button type="button" className="next-btn" onClick={nextPerson}>
             <FaChevronRight />
           </button>
           <div>

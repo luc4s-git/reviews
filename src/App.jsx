@@ -37,11 +37,15 @@ const App = () => {
   };
 
   const getRandomPerson = () => {
-    const getRandomNumber = Math.floor(Math.random() * (person.length - 0) + 0);
+    let getRandomNumber = Math.floor(Math.random() * (person.length - 0) + 0);
+
+    if (getRandomNumber === index) {
+      getRandomNumber = index + 1;
+    }
 
     setIndex((currentValue) => {
       const newValue = getRandomNumber;
-      return newValue;
+      return checkNumber(newValue);
     });
   };
 

@@ -37,7 +37,10 @@ const App = () => {
   };
 
   const getRandomPerson = () => {
-    setIndex(getRandomNumber(0, person.length));
+    setIndex((currentValue) => {
+      const newValue = getRandomNumber(0, person.length);
+      return newValue;
+    });
   };
 
   return (
@@ -59,12 +62,10 @@ const App = () => {
           <button type="button" className="next-btn" onClick={nextPerson}>
             <FaChevronRight />
           </button>
-          <div>
-            <button className="btn" onClick={getRandomPerson}>
-              surprise me!
-            </button>
-          </div>
         </div>
+        <button className="btn" onClick={getRandomPerson}>
+          surprise me!
+        </button>
       </article>
     </main>
   );

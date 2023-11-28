@@ -37,8 +37,10 @@ const App = () => {
   };
 
   const getRandomPerson = () => {
+    const getRandomNumber = Math.floor(Math.random() * (person.length - 0) + 0);
+
     setIndex((currentValue) => {
-      const newValue = getRandomNumber(0, person.length);
+      const newValue = getRandomNumber;
       return newValue;
     });
   };
